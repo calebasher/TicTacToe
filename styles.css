@@ -10,6 +10,12 @@ h1 {
 	color: #ffffff;
 }
 
+p {
+	font-family: 'Coming Soon', cursive;
+	font-size: 100px;
+	color: #ffffff;
+}
+
 #chalkboard {
 	background-image: url("https://pixabay.com/static/uploads/photo/2014/11/05/12/08/chalkboard-517818_960_720.jpg");    background-position: center;
     width: 600px;
@@ -31,14 +37,22 @@ h1 {
 }
 
 .row {
-	margin-bottom: -9px;
+	margin-bottom: -11px;
+
+}
+
+.toprow {
+
+	border-style: solid;
+	border-color: #ffffff;
+	border-width: 0px 0px 4px 0px;
 
 }
 
 .middlerow {
 	border-style: solid;
 	border-color: #ffffff;
-	border-width: 4px 0px 4px 0px;
+	border-width: 0px 0px 4px 0px;
 }
 
 .centercolumn {
@@ -46,3 +60,12 @@ h1 {
 	border-color: #ffffff;
 	border-width: 0px 4px 0px 4px;
 }
+
+#newGame {
+	margin-top:15px;
+
+}
+
+
+
+
