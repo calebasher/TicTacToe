@@ -28,7 +28,8 @@ $(document).ready(function(){
 	}
 
     $('.box').click(function(){
-    	if (yourIcon !== undefined && $('#status').is(':empty')) {
+    	if (yourIcon !== undefined && $('#status').is(':empty') && winnerFound !== true) {
+    		$.playSound("http://www.freesfx.co.uk/rx2/mp3s/6/6715_1342441037");
 	        $(this).html('<p>'+yourIcon+'</p>');
 	        moves ++; 
 	        checkForWinner(yourIcon);
@@ -37,25 +38,27 @@ $(document).ready(function(){
     })        
 
     function computerGoes(){
-            computerChoice =  Math.floor((Math.random() * 9) + 1);
-            if ($('#box'+computerChoice+'').is(':empty')) {
-                $('#box'+computerChoice+'').html('<p>'+computerIcon+'</p>');
-                moves ++;
-                checkForWinner(computerIcon);   
-            }
-            else if ($('#box'+computerChoice+'').is(':empty') === false && moves == 9) {            
-                checkForWinner(yourIcon);
-            }  
-            else if ($('#box'+computerChoice+'').is(':empty') === false) {            
-                computerGoes();
-            } 
-                           
+
+    	if (winnerFound !== true) {
+	            computerChoice =  Math.floor((Math.random() * 9) + 1);
+	            if ($('#box'+computerChoice+'').is(':empty')) {
+	                $('#box'+computerChoice+'').html('<p>'+computerIcon+'</p>');
+	                moves ++;
+	                checkForWinner(computerIcon);   
+	            }
+	            else if ($('#box'+computerChoice+'').is(':empty') === false && moves == 9) {            
+	                checkForWinner(yourIcon);
+	            }  
+	            else if ($('#box'+computerChoice+'').is(':empty') === false) {            
+	                computerGoes();
+	            }   
+	    }                            
     }
 
     function flash(){
-    	$('#box'+winningArray[i][0]+'').effect("pulsate", { times:3 }, 2000);
-		$('#box'+winningArray[i][1]+'').effect("pulsate", { times:3 }, 2000);
-		$('#box'+winningArray[i][2]+'').effect("pulsate", { times:3 }, 2000);
+    	$('#box'+winningArray[i][0]+' p').effect("pulsate", { times:3 }, 2000);
+		$('#box'+winningArray[i][1]+' p').effect("pulsate", { times:3 }, 2000);
+		$('#box'+winningArray[i][2]+' p').effect("pulsate", { times:3 }, 2000);
     }
 
     function checkForWinner(icon) {
@@ -73,6 +76,7 @@ $(document).ready(function(){
 						lost ++;
 						updateScore();
 						winnerFound = true;
+						break;
 					}
 					else if (icon == yourIcon) {
 						flash();
@@ -80,15 +84,17 @@ $(document).ready(function(){
 						won ++;
 						updateScore();
 						winnerFound = true;
+						break;
 					}
 				}
-				else if (moves == 9 && winnerFound === false) {
+				
+			}
+			if (moves == 9 && winnerFound === false) {
 						$('#status').hide().html('It\'s a Tie').fadeIn(2500);
 						tied++;
 						updateScore();
 						winnerFound = true;
 					}	
-			}
 	}
 
 	//modal code
