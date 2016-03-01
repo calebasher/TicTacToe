@@ -10,11 +10,41 @@ h1 {
 	color: #ffffff;
 }
 
+h2 {
+	font-family: 'Coming Soon', cursive;
+	font-size: 20px;
+	color: #ffffff;
+	float: left;
+	position: absolute;
+	padding-left: 20px
+}
+
+h3 {
+	font-family: 'Coming Soon', cursive;
+	font-size: 28px;
+	color: #ffffff;
+	position: absolute;
+	margin-top: -35px;
+    margin-left: 460px;
+    transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg); /* IE 9 */
+    -webkit-transform: rotate(-20deg); /* Chrome, Safari, Opera */
+}
+
 p {
 	font-family: 'Coming Soon', cursive;
 	font-size: 100px;
 	color: #ffffff;
 }
+
+#lost{
+	padding-top:30px;
+}
+
+#tied{
+	padding-top:60px;
+}
+
 
 #chalkboard {
 	background-image: url("https://pixabay.com/static/uploads/photo/2014/11/05/12/08/chalkboard-517818_960_720.jpg");    background-position: center;
@@ -22,6 +52,9 @@ p {
     height: 350px;
     border-radius: 20px;
     margin: auto;
+    border-style: solid;
+    border-color: #834040;
+    border-width: 7px;
 }
 
 #game {
