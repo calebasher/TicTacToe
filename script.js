@@ -28,13 +28,15 @@ $(document).ready(function(){
 	}
 
     $('.box').click(function(){
-    	if (yourIcon !== undefined && $('#status').is(':empty') && winnerFound !== true) {
-    		$.playSound("http://www.freesfx.co.uk/rx2/mp3s/6/6715_1342441037");
-	        $(this).html('<p>'+yourIcon+'</p>');
-	        moves ++; 
-	        checkForWinner(yourIcon);
-	        computerGoes();
-	    }
+    	if ($(this).is(':empty')) {
+	    	if (yourIcon !== undefined && $('#status').is(':empty') && winnerFound !== true) {
+	    		$.playSound("http://www.freesfx.co.uk/rx2/mp3s/6/6715_1342441037");
+		        $(this).html('<p>'+yourIcon+'</p>');
+		        moves ++; 
+		        checkForWinner(yourIcon);
+		        computerGoes();
+		    }
+		}    
     })        
 
     function computerGoes(){
